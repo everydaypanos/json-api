@@ -353,7 +353,19 @@ class Resource implements ElementInterface
     {
         $this->includes = array_unique(array_merge($this->includes, (array) $relationships));
 
-        $this->relationships = null;
+        //$this->relationships = null;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function incl($relationships)
+    {
+        //$this->includes = array_unique(array_merge($this->includes, (array) $relationships));
+
+        $this->relationships = $relationships;
 
         return $this;
     }
