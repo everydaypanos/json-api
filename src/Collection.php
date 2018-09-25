@@ -89,6 +89,22 @@ class Collection implements ElementInterface
     }
 
     /**
+     * Request a relationship to be included for all resources.
+     *
+     * @param string|array $relationships
+     *
+     * @return $this
+     */
+    public function incl($relationships)
+    {
+        foreach ($this->resources as $resource) {
+            $resource->incl($relationships);
+        }
+
+        return $this;
+    }
+
+    /**
      * Request a restricted set of fields.
      *
      * @param array|null $fields
